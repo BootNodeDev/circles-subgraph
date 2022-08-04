@@ -98,6 +98,7 @@ export function handleMemberTokenAdded(event: MemberTokenAddedEvent): void {
   let eventId = createEventID(event.block.number, event.logIndex)
   let groupAddMemberEvent = new GroupAddMember(eventId)
   groupAddMemberEvent.user = safeId
+  groupAddMemberEvent.group = groupId
   groupAddMemberEvent.save()
 
   // Creates Notification for Group Creation event
@@ -127,6 +128,7 @@ export function handleMemberTokenRemoved(event: MemberTokenAddedEvent): void {
   let eventId = createEventID(event.block.number, event.logIndex)
   let groupRemoveMemberEvent = new GroupRemoveMember(eventId)
   groupRemoveMemberEvent.user = safeId
+  groupRemoveMemberEvent.group = groupId
   groupRemoveMemberEvent.save()
 
   // Creates Notification for Group Creation event
@@ -193,6 +195,7 @@ export function handleMinted(event: MintedEvent): void {
   groupMintEvent.receiver = receiver
   groupMintEvent.amount = mintAmount
   groupMintEvent.mintFee = event.params._mintFee
+  groupMintEvent.group = groupAddress.toHexString()
   groupMintEvent.save()
 
   // Creates Notification for Group Creation event

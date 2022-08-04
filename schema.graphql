@@ -103,22 +103,26 @@ type GroupMint implements Event @entity {
   receiver: String
   amount: BigInt
   mintFee: BigInt
+  group: String
 }
 
 type GroupOwnerChange implements Event @entity {
   id: ID! # Concatenation of block number and log ID
   oldOwner: String
   newOwner: BigInt
+  group: String
 }
 
 type GroupAddMember implements Event @entity {
   id: ID! # Concatenation of block number and log ID
   user: String
+  group: String
 }
 
 type GroupRemoveMember implements Event @entity {
   id: ID! # Concatenation of block number and log ID
   user: String
+  group: String
 }
 
 type Notification implements Event @entity {
