@@ -107,8 +107,8 @@ type GroupMint implements Event @entity {
 
 type GroupOwnerChange implements Event @entity {
   id: ID! # Concatenation of block number and log ID
-  oldOwner: Safe
-  newOwner: Safe
+  oldOwner: String
+  newOwner: String
   group: GroupCurrencyToken
 }
 
